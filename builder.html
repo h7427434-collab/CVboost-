@@ -3,341 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CVBoost | First Resume Builder</title>
+<title>CVBoost | Resume Builder</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(135deg,#f4efff,#fff1f7);
-    color:#19152d;
-    padding-bottom:60px;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#f4efff,#fff1f7);
+color:#19152d;
+padding-bottom:60px
 }
 
 .header{
-    background:white;
-    padding:15px 22px;
-    box-shadow:0 3px 15px rgba(0,0,0,.06);
+background:#fff;
+padding:15px 22px;
+box-shadow:0 3px 15px rgba(0,0,0,.06)
 }
 
 .header-inner{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-    color:#19152d;
-    font-size:24px;
-    font-weight:900;
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+color:#19152d;
+font-size:24px;
+font-weight:900
 }
 
 .logo-icon{
-    width:42px;
-    height:42px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#6547ee,#b33ee9,#ff507e);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:16px;
+width:42px;
+height:42px;
+border-radius:12px;
+background:linear-gradient(135deg,#6547ee,#b33ee9,#ff507e);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:16px
 }
 
 .back{
-    text-decoration:none;
-    color:#6848ef;
-    font-weight:bold;
-    font-size:14px;
+text-decoration:none;
+color:#6848ef;
+font-weight:bold;
+font-size:14px
 }
 
 .container{
-    max-width:900px;
-    margin:45px auto;
-    padding:0 20px;
+max-width:900px;
+margin:45px auto;
+padding:0 20px
 }
 
 .top{
-    text-align:center;
-    margin-bottom:30px;
+text-align:center;
+margin-bottom:30px
 }
 
 .top h1{
-    font-size:40px;
-    margin-bottom:10px;
+font-size:40px;
+margin-bottom:10px
 }
 
-.top p{
-    color:#6d6878;
-}
+.top p{color:#6d6878}
 
 .free{
-    display:inline-block;
-    margin-top:15px;
-    padding:8px 16px;
-    border-radius:30px;
-    background:#eee9ff;
-    color:#6848ef;
-    font-weight:bold;
-    font-size:13px;
+display:inline-block;
+margin-top:15px;
+padding:8px 16px;
+border-radius:30px;
+background:#eee9ff;
+color:#6848ef;
+font-weight:bold;
+font-size:13px
 }
 
 .form-card{
-    background:white;
-    padding:32px;
-    border-radius:24px;
-    box-shadow:0 15px 45px rgba(55,39,100,.10);
+background:#fff;
+padding:32px;
+border-radius:24px;
+box-shadow:0 15px 45px rgba(55,39,100,.10)
 }
 
 .section{
-    padding-bottom:30px;
-    margin-bottom:30px;
-    border-bottom:1px solid #eeeaf5;
+padding-bottom:30px;
+margin-bottom:30px;
+border-bottom:1px solid #eeeaf5
 }
 
-.section:last-of-type{
-    border-bottom:none;
-}
+.section:last-of-type{border-bottom:none}
 
 .section h2{
-    margin-bottom:10px;
-    color:#6848ef;
-    font-size:22px;
+margin-bottom:10px;
+color:#6848ef;
+font-size:22px
 }
 
 .section-description{
-    color:#777180;
-    font-size:13px;
-    margin-bottom:18px;
+color:#777180;
+font-size:13px;
+margin-bottom:18px
 }
 
-.field{
-    margin-bottom:16px;
-}
+.field{margin-bottom:16px}
 
 label{
-    display:block;
-    font-weight:bold;
-    margin-bottom:7px;
-    font-size:14px;
+display:block;
+font-weight:bold;
+margin-bottom:7px;
+font-size:14px
 }
 
-input,
-textarea,
-select{
-    width:100%;
-    padding:13px;
-    border:1px solid #ddd8ea;
-    border-radius:10px;
-    font-size:15px;
-    outline:none;
-    font-family:inherit;
+input,textarea,select{
+width:100%;
+padding:13px;
+border:1px solid #ddd8ea;
+border-radius:10px;
+font-size:15px;
+outline:none;
+font-family:inherit
 }
 
-input:focus,
-textarea:focus,
-select:focus{
-    border-color:#7657ee;
-    box-shadow:0 0 0 3px rgba(118,87,238,.10);
+input:focus,textarea:focus,select:focus{
+border-color:#7657ee;
+box-shadow:0 0 0 3px rgba(118,87,238,.10)
 }
 
 textarea{
-    min-height:100px;
-    resize:vertical;
+min-height:100px;
+resize:vertical
 }
 
 .two{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
 }
 
-/* ENTRY */
+/* ENTRIES */
 
 .entry{
-    background:#faf9ff;
-    border:1px solid #e9e4f7;
-    padding:20px;
-    border-radius:16px;
-    margin-bottom:15px;
+background:#faf9ff;
+border:1px solid #e9e4f7;
+padding:20px;
+border-radius:16px;
+margin-bottom:15px
 }
 
 .entry-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:15px
 }
 
 .entry-number{
-    font-weight:800;
-    color:#6848ef;
+font-weight:800;
+color:#6848ef
 }
 
 .remove-btn{
-    border:none;
-    background:#ffe9ee;
-    color:#d83260;
-    padding:7px 11px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
+border:none;
+background:#ffe9ee;
+color:#d83260;
+padding:7px 11px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold
 }
-
-/* ADD BUTTON */
 
 .add-btn{
-    width:100%;
-    padding:12px;
-    border:1px dashed #a99be8;
-    border-radius:11px;
-    background:#f8f6ff;
-    color:#6848ef;
-    font-weight:bold;
-    cursor:pointer;
+width:100%;
+padding:12px;
+border:1px dashed #a99be8;
+border-radius:11px;
+background:#f8f6ff;
+color:#6848ef;
+font-weight:bold;
+cursor:pointer
 }
 
-.add-btn:hover{
-    background:#eeeaff;
-}
+.add-btn:hover{background:#eeeaff}
 
 /* UPLOAD */
 
 .upload-box{
-    border:2px dashed #cfc6ef;
-    border-radius:15px;
-    padding:20px;
-    text-align:center;
-    background:#fff;
-    margin-top:15px;
+border:2px dashed #cfc6ef;
+border-radius:15px;
+padding:20px;
+text-align:center;
+background:#fff;
+margin-top:15px
 }
 
 .upload-icon{
-    font-size:30px;
-    margin-bottom:8px;
+font-size:30px;
+margin-bottom:8px
 }
 
 .upload-box p{
-    color:#777180;
-    font-size:13px;
-    margin-bottom:12px;
+color:#777180;
+font-size:13px;
+margin-bottom:12px
 }
 
 .file-label{
-    display:inline-block;
-    padding:10px 16px;
-    background:#eee9ff;
-    color:#6848ef;
-    border-radius:9px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:13px;
+display:inline-block;
+padding:10px 16px;
+background:#eee9ff;
+color:#6848ef;
+border-radius:9px;
+cursor:pointer;
+font-weight:bold;
+font-size:13px
 }
 
-.file-input{
-    display:none;
-}
+.file-input{display:none}
 
 .file-name{
-    margin-top:10px;
-    font-size:13px;
-    color:#5e596d;
-    word-break:break-word;
+margin-top:10px;
+font-size:13px;
+color:#5e596d;
+word-break:break-word
 }
 
-.file-actions{
-    margin-top:10px;
-}
+.file-actions{margin-top:10px}
 
-.extract-btn,
-.remove-file-btn{
-    border:none;
-    padding:9px 13px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-    margin:3px;
+.extract-btn,.remove-file-btn{
+border:none;
+padding:9px 13px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+margin:3px
 }
 
 .extract-btn{
-    background:#6848ef;
-    color:white;
+background:#6848ef;
+color:#fff
 }
 
 .remove-file-btn{
-    background:#ffe9ee;
-    color:#d83260;
+background:#ffe9ee;
+color:#d83260
 }
+
+/* TEMPLATE SELECTION */
+
+.template-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:20px
+}
+
+.template-card{
+cursor:pointer;
+display:block
+}
+
+.template-card input{
+display:none
+}
+
+.template-preview{
+min-height:230px;
+background:#fff;
+border:2px solid #e5e0f0;
+border-radius:14px;
+padding:18px;
+transition:.2s;
+box-shadow:0 5px 18px rgba(50,35,90,.06)
+}
+
+.template-card:hover .template-preview{
+transform:translateY(-3px);
+border-color:#a99be8
+}
+
+.template-card input:checked + .template-preview{
+border:3px solid #6848ef;
+box-shadow:0 8px 25px rgba(104,72,239,.18)
+}
+
+.template-info{
+padding:10px 3px
+}
+
+.template-info strong{
+display:block;
+color:#29233d;
+margin-bottom:3px
+}
+
+.template-info span{
+color:#777180;
+font-size:12px
+}
+
+.preview-name,.modern-name,.graduate-name{
+font-weight:900;
+font-size:17px;
+margin-bottom:7px
+}
+
+.preview-line{
+height:2px;
+background:#6848ef;
+margin-bottom:16px
+}
+
+.preview-section,.modern-section,.graduate-section{
+font-size:10px;
+font-weight:900;
+margin-top:12px;
+margin-bottom:5px
+}
+
+.preview-lines{
+color:#b7b2c1;
+font-size:9px;
+line-height:1.5
+}
+
+.modern-preview{
+border-top:7px solid #6848ef
+}
+
+.modern-name{color:#6848ef}
+
+.modern-contact{
+font-size:8px;
+color:#777180;
+margin-bottom:18px
+}
+
+.graduate-preview{
+background:#faf9ff
+}
+
+.graduate-name{text-align:center}
+
+.graduate-title{
+text-align:center;
+color:#6848ef;
+font-size:8px;
+font-weight:bold;
+margin-bottom:18px
+}
+
+.graduate-section{color:#6848ef}
 
 /* NOTE */
 
 .note{
-    margin-bottom:18px;
-    padding:14px;
-    background:#f8f6ff;
-    border-radius:10px;
-    color:#696378;
-    font-size:13px;
+margin-bottom:18px;
+padding:14px;
+background:#f8f6ff;
+border-radius:10px;
+color:#696378;
+font-size:13px
 }
 
-/* MAIN BUTTON */
+/* GENERATE */
 
 .generate-btn{
-    width:100%;
-    border:none;
-    padding:17px;
-    border-radius:13px;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    background:linear-gradient(135deg,#6848ef,#a33de4);
-    box-shadow:0 12px 25px rgba(104,72,239,.22);
+width:100%;
+border:none;
+padding:17px;
+border-radius:13px;
+color:#fff;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+background:linear-gradient(135deg,#6848ef,#a33de4);
+box-shadow:0 12px 25px rgba(104,72,239,.22)
 }
 
 .generate-btn:hover{
-    transform:translateY(-2px);
+transform:translateY(-2px)
 }
 
 /* MOBILE */
 
+@media(max-width:750px){
+
+.template-grid{
+grid-template-columns:1fr
+}
+
+.template-preview{
+min-height:210px
+}
+
+}
+
 @media(max-width:600px){
 
-    .container{
-        margin-top:30px;
-    }
+.container{margin-top:30px}
 
-    .top h1{
-        font-size:30px;
-    }
+.top h1{font-size:30px}
 
-    .form-card{
-        padding:22px;
-    }
+.form-card{padding:22px}
 
-    .two{
-        grid-template-columns:1fr;
-    }
+.two{grid-template-columns:1fr}
 
-    .header-inner{
-        gap:10px;
-    }
+.header-inner{gap:10px}
 
-    .back{
-        font-size:12px;
-    }
+.back{font-size:12px}
+
 }
 </style>
 </head>
@@ -368,9 +451,7 @@ CVBoost
 
 <h1>📝 Create Your First Resume</h1>
 
-<p>
-Build your resume step by step with CVBoost.
-</p>
+<p>Build your resume step by step with CVBoost.</p>
 
 <div class="free">
 🎁 Your first complete attempt is FREE
@@ -455,7 +536,7 @@ placeholder="Briefly describe your education, skills, interests and career goal.
 
 <p class="section-description">
 Add only the education you want to show on your resume.
-University/College, PUC/12th and SSLC/10th are all optional.
+University/College, PUC/12th and SSLC/10th are optional.
 </p>
 
 <div id="education"></div>
@@ -571,11 +652,178 @@ onclick="addAchievement()">
 </div>
 
 
+<!-- TEMPLATE SELECTION -->
+
+<div class="section">
+
+<h2>🎨 Choose Your Resume Template</h2>
+
+<p class="section-description">
+Select an ATS-friendly template before generating your resume.
+</p>
+
+<div class="template-grid">
+
+
+<label class="template-card">
+
+<input
+type="radio"
+name="resumeTemplate"
+value="classic"
+checked>
+
+<div class="template-preview">
+
+<div class="preview-name">
+YOUR NAME
+</div>
+
+<div class="preview-line"></div>
+
+<div class="preview-section">
+EDUCATION
+</div>
+
+<div class="preview-lines">
+──────────────<br>
+──────────────<br>
+──────────────
+</div>
+
+<div class="preview-section">
+SKILLS
+</div>
+
+<div class="preview-lines">
+──────────────<br>
+──────────────
+</div>
+
+</div>
+
+<div class="template-info">
+
+<strong>Classic ATS</strong>
+
+<span>
+Simple • Professional • ATS-friendly
+</span>
+
+</div>
+
+</label>
+
+
+<label class="template-card">
+
+<input
+type="radio"
+name="resumeTemplate"
+value="modern">
+
+<div class="template-preview modern-preview">
+
+<div class="modern-name">
+YOUR NAME
+</div>
+
+<div class="modern-contact">
+EMAIL • PHONE • LINKEDIN
+</div>
+
+<div class="modern-section">
+PROFILE
+</div>
+
+<div class="preview-lines">
+──────────────<br>
+──────────────
+</div>
+
+<div class="modern-section">
+EXPERIENCE
+</div>
+
+<div class="preview-lines">
+──────────────<br>
+──────────────
+</div>
+
+</div>
+
+<div class="template-info">
+
+<strong>Modern Professional</strong>
+
+<span>
+Clean • Modern • ATS-friendly
+</span>
+
+</div>
+
+</label>
+
+
+<label class="template-card">
+
+<input
+type="radio"
+name="resumeTemplate"
+value="graduate">
+
+<div class="template-preview graduate-preview">
+
+<div class="graduate-name">
+YOUR NAME
+</div>
+
+<div class="graduate-title">
+FRESH GRADUATE
+</div>
+
+<div class="graduate-section">
+EDUCATION
+</div>
+
+<div class="preview-lines">
+──────────────<br>
+──────────────<br>
+──────────────
+</div>
+
+<div class="graduate-section">
+PROJECTS
+</div>
+
+<div class="preview-lines">
+──────────────<br>
+──────────────
+</div>
+
+</div>
+
+<div class="template-info">
+
+<strong>Fresh Graduate</strong>
+
+<span>
+Fresher-focused • Clean • ATS-friendly
+</span>
+
+</div>
+
+</label>
+
+</div>
+
+</div>
+
+
 <div class="note">
 
 🔐 Uploaded documents are optional.
 Always review extracted information before adding it to your resume.
-CVBoost should never create fake qualifications, certificates or experience.
 
 </div>
 
@@ -595,25 +843,26 @@ onclick="generateResume()">
 
 <script>
 
-/* =========================
-   EDUCATION
-========================= */
+let educationCount=0;
+let projectCount=0;
+let internshipCount=0;
+let certificationCount=0;
+let achievementCount=0;
 
-let educationCount = 0;
+
+/* EDUCATION */
 
 function addEducation(){
 
 educationCount++;
 
-const container =
-document.getElementById("education");
+const container=document.getElementById("education");
 
-const entry =
-document.createElement("div");
+const entry=document.createElement("div");
 
-entry.className = "entry";
+entry.className="entry";
 
-entry.innerHTML = `
+entry.innerHTML=`
 
 <div class="entry-header">
 
@@ -633,100 +882,230 @@ Remove
 
 <label>Education Level</label>
 
-<select>
+<select onchange="changeEducationFields(this)">
 
 <option value="">
 Select education level
 </option>
 
-<option>University / College</option>
+<option value="university">
+University / College
+</option>
 
-<option>PUC / 12th</option>
+<option value="puc">
+PUC / 12th
+</option>
 
-<option>SSLC / 10th</option>
+<option value="sslc">
+SSLC / 10th
+</option>
 
-<option>Diploma</option>
+<option value="diploma">
+Diploma
+</option>
 
-<option>Other</option>
+<option value="other">
+Other
+</option>
 
 </select>
 
 </div>
 
+<div class="education-fields"></div>
+
+`;
+
+container.appendChild(entry);
+
+}
+
+
+/* EDUCATION FIELDS */
+
+function changeEducationFields(select){
+
+const fields=
+select.closest(".entry")
+.querySelector(".education-fields");
+
+if(select.value==="university"){
+
+fields.innerHTML=`
+
 <div class="field">
-
-<label>Course / Qualification</label>
-
+<label>Degree / Course</label>
 <input type="text"
 placeholder="Example: B.E. Electrical & Electronics Engineering">
-
 </div>
 
 <div class="field">
-
-<label>School / College / University</label>
-
+<label>College / University</label>
 <input type="text"
-placeholder="Institution name">
-
+placeholder="College or University name">
 </div>
 
 <div class="field">
-
-<label>Board / University</label>
-
+<label>University / Board</label>
 <input type="text"
-placeholder="Example: VTU / CBSE / Karnataka Board">
-
+placeholder="Example: VTU">
 </div>
 
 <div class="two">
 
 <div class="field">
-
-<label>Year</label>
-
+<label>Graduation Year</label>
 <input type="text"
 placeholder="2028">
-
 </div>
 
 <div class="field">
-
 <label>CGPA / Percentage</label>
-
 <input type="text"
-placeholder="9.70 / 95%">
-
+placeholder="9.70 / 97%">
 </div>
 
 </div>
 
 `;
 
-container.appendChild(entry);
+}
+
+else if(select.value==="puc"){
+
+fields.innerHTML=`
+
+<div class="field">
+<label>College Name</label>
+<input type="text"
+placeholder="PUC College name">
+</div>
+
+<div class="field">
+<label>Board</label>
+<input type="text"
+placeholder="Example: Karnataka 2nd PUC">
+</div>
+
+<div class="field">
+<label>Stream</label>
+<select>
+<option value="">Select stream</option>
+<option>Science</option>
+<option>Commerce</option>
+<option>Arts</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="two">
+
+<div class="field">
+<label>Year of Passing</label>
+<input type="text"
+placeholder="2024">
+</div>
+
+<div class="field">
+<label>Percentage</label>
+<input type="text"
+placeholder="95.83%">
+</div>
+
+</div>
+
+`;
+
+}
+
+else if(select.value==="sslc"){
+
+fields.innerHTML=`
+
+<div class="field">
+<label>School Name</label>
+<input type="text"
+placeholder="School name">
+</div>
+
+<div class="field">
+<label>Board</label>
+<input type="text"
+placeholder="Example: Karnataka SSLC">
+</div>
+
+<div class="two">
+
+<div class="field">
+<label>Year of Passing</label>
+<input type="text"
+placeholder="2022">
+</div>
+
+<div class="field">
+<label>Percentage</label>
+<input type="text"
+placeholder="94.46%">
+</div>
+
+</div>
+
+`;
+
+}
+
+else{
+
+fields.innerHTML=`
+
+<div class="field">
+<label>Course / Qualification</label>
+<input type="text"
+placeholder="Course or qualification">
+</div>
+
+<div class="field">
+<label>Institution Name</label>
+<input type="text"
+placeholder="School / College / Institute">
+</div>
+
+<div class="two">
+
+<div class="field">
+<label>Year</label>
+<input type="text"
+placeholder="2026">
+</div>
+
+<div class="field">
+<label>CGPA / Percentage</label>
+<input type="text"
+placeholder="Enter result">
+</div>
+
+</div>
+
+`;
+
+}
+
 }
 
 
-/* =========================
-   PROJECTS
-========================= */
-
-let projectCount = 0;
+/* PROJECT */
 
 function addProject(){
 
 projectCount++;
 
-const container =
-document.getElementById("projects");
+const container=document.getElementById("projects");
 
-const entry =
-document.createElement("div");
+const entry=document.createElement("div");
 
-entry.className = "entry";
+entry.className="entry";
 
-entry.innerHTML = `
+entry.innerHTML=`
 
 <div class="entry-header">
 
@@ -743,59 +1122,45 @@ Remove
 </div>
 
 <div class="field">
-
 <label>Project Name</label>
-
 <input type="text"
 placeholder="Example: Smart Energy Monitoring System">
-
 </div>
 
 <div class="field">
-
 <label>Project Description</label>
-
 <textarea
 placeholder="What did you build? What did you do?"></textarea>
-
 </div>
 
 <div class="field">
-
 <label>Technologies / Components</label>
-
 <input type="text"
 placeholder="Example: Arduino, C, Sensors">
-
 </div>
 
-${uploadBox("project")}
+${uploadBox()}
 
 `;
 
 container.appendChild(entry);
+
 }
 
 
-/* =========================
-   INTERNSHIPS
-========================= */
-
-let internshipCount = 0;
+/* INTERNSHIP */
 
 function addInternship(){
 
 internshipCount++;
 
-const container =
-document.getElementById("internships");
+const container=document.getElementById("internships");
 
-const entry =
-document.createElement("div");
+const entry=document.createElement("div");
 
-entry.className = "entry";
+entry.className="entry";
 
-entry.innerHTML = `
+entry.innerHTML=`
 
 <div class="entry-header">
 
@@ -812,59 +1177,45 @@ Remove
 </div>
 
 <div class="field">
-
 <label>Organization / Company</label>
-
 <input type="text"
 placeholder="Company or organization">
-
 </div>
 
 <div class="field">
-
 <label>Role / Internship Title</label>
-
 <input type="text"
 placeholder="Example: Software Intern">
-
 </div>
 
 <div class="field">
-
 <label>Internship Description</label>
-
 <textarea
 placeholder="Describe your genuine work or training experience"></textarea>
-
 </div>
 
-${uploadBox("internship")}
+${uploadBox()}
 
 `;
 
 container.appendChild(entry);
+
 }
 
 
-/* =========================
-   CERTIFICATIONS
-========================= */
-
-let certificationCount = 0;
+/* CERTIFICATE */
 
 function addCertification(){
 
 certificationCount++;
 
-const container =
-document.getElementById("certifications");
+const container=document.getElementById("certifications");
 
-const entry =
-document.createElement("div");
+const entry=document.createElement("div");
 
-entry.className = "entry";
+entry.className="entry";
 
-entry.innerHTML = `
+entry.innerHTML=`
 
 <div class="entry-header">
 
@@ -881,59 +1232,45 @@ Remove
 </div>
 
 <div class="field">
-
 <label>Certificate Name</label>
-
 <input type="text"
 placeholder="Example: Python Programming">
-
 </div>
 
 <div class="field">
-
 <label>Issuing Organization</label>
-
 <input type="text"
 placeholder="Organization / Platform">
-
 </div>
 
 <div class="field">
-
 <label>Year</label>
-
 <input type="text"
 placeholder="2026">
-
 </div>
 
-${uploadBox("certificate")}
+${uploadBox()}
 
 `;
 
 container.appendChild(entry);
+
 }
 
 
-/* =========================
-   ACHIEVEMENTS
-========================= */
-
-let achievementCount = 0;
+/* ACHIEVEMENT */
 
 function addAchievement(){
 
 achievementCount++;
 
-const container =
-document.getElementById("achievements");
+const container=document.getElementById("achievements");
 
-const entry =
-document.createElement("div");
+const entry=document.createElement("div");
 
-entry.className = "entry";
+entry.className="entry";
 
-entry.innerHTML = `
+entry.innerHTML=`
 
 <div class="entry-header">
 
@@ -950,39 +1287,31 @@ Remove
 </div>
 
 <div class="field">
-
 <label>Achievement</label>
-
 <textarea
 placeholder="Describe your genuine achievement"></textarea>
-
 </div>
 
 `;
 
 container.appendChild(entry);
+
 }
 
 
-/* =========================
-   UPLOAD BOX
-========================= */
+/* UPLOAD */
 
-function uploadBox(type){
+function uploadBox(){
 
 return `
 
 <div class="upload-box">
 
-<div class="upload-icon">
-📎
-</div>
+<div class="upload-icon">📎</div>
 
 <p>
 Upload supporting file (optional)<br>
-<small>
-JPG, JPEG, PNG, PDF, DOC or DOCX
-</small>
+<small>JPG, JPEG, PNG, PDF, DOC or DOCX</small>
 </p>
 
 <label class="file-label">
@@ -1006,9 +1335,7 @@ type="button"
 class="extract-btn"
 style="display:none"
 onclick="prepareExtraction(this)">
-
 ✨ Extract Information
-
 </button>
 
 <button
@@ -1016,9 +1343,7 @@ type="button"
 class="remove-file-btn"
 style="display:none"
 onclick="removeFile(this)">
-
 ✕ Remove File
-
 </button>
 
 </div>
@@ -1026,125 +1351,71 @@ onclick="removeFile(this)">
 </div>
 
 `;
+
 }
 
 
-/* =========================
-   SHOW FILE
-========================= */
+/* FILE DISPLAY */
 
 function showFile(input){
 
-const box =
-input.closest(".upload-box");
+const box=input.closest(".upload-box");
 
-const fileName =
-box.querySelector(".file-name");
+const fileName=box.querySelector(".file-name");
 
-const extractButton =
-box.querySelector(".extract-btn");
+const extractButton=box.querySelector(".extract-btn");
 
-const removeButton =
-box.querySelector(".remove-file-btn");
+const removeButton=box.querySelector(".remove-file-btn");
 
-if(input.files.length > 0){
+if(input.files.length>0){
 
-fileName.textContent =
-"Selected: " + input.files[0].name;
+fileName.textContent=
+"Selected: "+input.files[0].name;
 
-extractButton.style.display =
-"inline-block";
+extractButton.style.display="inline-block";
 
-removeButton.style.display =
-"inline-block";
+removeButton.style.display="inline-block";
 
 }
 
 }
 
 
-/* =========================
-   REMOVE FILE
-========================= */
+/* REMOVE FILE */
 
 function removeFile(button){
 
-const box =
-button.closest(".upload-box");
+const box=button.closest(".upload-box");
 
-const input =
-box.querySelector(".file-input");
+box.querySelector(".file-input").value="";
 
-const fileName =
-box.querySelector(".file-name");
+box.querySelector(".file-name").textContent="";
 
-const extractButton =
-box.querySelector(".extract-btn");
+box.querySelector(".extract-btn").style.display="none";
 
-input.value = "";
-
-fileName.textContent = "";
-
-extractButton.style.display =
-"none";
-
-button.style.display =
-"none";
+button.style.display="none";
 
 }
 
 
-/* =========================
-   EXTRACTION
-========================= */
+/* EXTRACTION PLACEHOLDER */
 
 function prepareExtraction(button){
 
 alert(
-"✅ File received!\n\n" +
-"The real document/image text extraction system " +
-"will be connected in the next development step."
+"✅ File received!\n\n"+
+"The document extraction system will be connected next."
 );
 
 }
 
 
-/* =========================
-   GENERATE
-========================= */
+/* GENERATE PLACEHOLDER */
 
 function generateResume(){
 
-const name =
-document.getElementById("name").value.trim();
+const name=document.getElementById("name").value.trim();
 
-const email =
-document.getElementById("email").value.trim();
+const email=document.getElementById("email").value.trim();
 
-const phone =
-document.getElementById("phone").value.trim();
-
-
-if(!name || !email || !phone){
-
-alert(
-"Please enter your name, email and phone number."
-);
-
-return;
-
-}
-
-
-alert(
-"✅ Your resume information is ready!\n\n" +
-"Next we will create the resume preview, " +
-"ATS score and error report."
-);
-
-}
-
-</script>
-
-</body>
-</html>
+const phone=document.getElementById("phone").valu
