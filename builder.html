@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBoost | First Resume Builder</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f4efff, #fff1f7);
+            color: #19152d;
+            padding-bottom: 50px;
+        }
+
+        .header {
+            background: white;
+            padding: 16px 22px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: #6948ef;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .top {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .top h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .top p {
+            color: #6d6878;
+        }
+
+        .free {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: #eee9ff;
+            color: #6848ef;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 15px 45px rgba(55,39,100,0.10);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            margin-bottom: 18px;
+            color: #6848ef;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd8ea;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #7657ee;
+            box-shadow: 0 0 0 3px rgba(118,87,238,0.10);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .button {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: linear-gradient(135deg, #6848ef, #a33de4);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .note {
+            margin-top: 15px;
+            padding: 13px;
+            background: #f8f6ff;
+            border-radius: 10px;
+            color: #696378;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .top h1 {
+                font-size: 30px;
+            }
+
+            .form-card {
+                padding: 22px;
+            }
+
+            .two {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">CVBoost</div>
+</header>
+
+<div class="container">
+
+    <div class="top">
+
+        <h1>📝 Create Your First Resume</h1>
+
+        <p>
+            Don't have a resume yet?
+            We'll guide you step by step.
+        </p>
+
+        <div class="free">
+            🎁 Your first complete attempt is FREE
+        </div>
+
+    </div>
+
+    <div class="form-card">
+
+        <!-- PERSONAL DETAILS -->
+
+        <div class="section">
+
+            <h2>👤 Personal Details</h2>
+
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text" id="name"
+                       placeholder="Enter your full name">
+            </div>
+
+            <div class="two">
+
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" id="email"
+                           placeholder="your@email.com">
+                </div>
+
+                <div class="field">
+                    <label>Phone</label>
+                    <input type="tel" id="phone"
+                           placeholder="Your phone number">
+                </div>
+
+            </div>
+
+            <div class="field">
+                <label>Location</label>
+                <input type="text" id="location"
+                       placeholder="City, State">
+            </div>
+
+            <div class="field">
+                <label>LinkedIn Profile (Optional)</label>
+                <input type="url" id="linkedin"
+                       placeholder="https://linkedin.com/in/...">
+            </div>
+
+            <div class="field">
+                <label>GitHub Profile (Optional)</label>
+                <input type="url" id="github"
+                       placeholder="https://github.com/...">
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="section">
+
+            <h2>🎯 Professional Summary</h2>
+
+            <div class="field">
+
+                <label>
+                    Tell us briefly about yourself
+                </label>
+
+                <textarea id="summary"
+                    placeholder="Example: Electrical & Electronics Engineering student with a strong foundation in..."></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <div class="section">
+
+            <h2>🎓 Education</h2>
+
+            <div class="field">
+                <label>Degree / Course</label>
+                <input type="text" id="degree"
+                       placeholder="Example: B.E. Electrical & Electronics Engineering">
+            </div>
+
+            <div class="field">
+                <label>College / University</label>
+                <input type="text" id="college"
+                       placeholder="College name">
+            </div>
+
+            <div class="two">
+
+                <div class="field">
+                    <label>Graduation Year</label>
+                    <input type="text" id="year"
+                           placeholder="2028">
+                </div>
+
+                <div class="field">
+                    <label>CGPA / Percentage</label>
+                    <input type="text" id="cgpa"
+                           placeholder="9.00 / 10">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="section">
+
+            <h2>💻 Skills</h2>
+
+            <div class="field">
+
+                <label>Your Skills</label>
+
+                <textarea id="skills"
+                    placeholder="Example: Python, C, C++, HTML, CSS, JavaScript, AutoCAD"></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECTS -->
+
+        <div class="section">
+
+            <h2>🚀 Projects</h2>
+
+            <div class="field">
+
+                <label>Project Name</label>
+
+                <input type="text" id="projectName"
+                       placeholder="Your project name">
+
+            </div>
+
+            <div class="field">
+
+                <label>Project Description</label>
+
+                <textarea id="projectDescription"
+                    placeholder="Describe what you built and what you did"></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- INTERNSHIP -->
+
+        <div class="section">
+
+            <h2>💼 Internship / Experience</h2>
+
+            <div class="field">
+
+                <label>Details (Optional)</label>
+
+                <textarea id="experience"
+                    placeholder="Add internship, training or relevant experience"></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATIONS -->
+
+        <div class="section">
+
+            <h2>🏆 Certifications</h2>
+
+            <div class="field">
+
+                <label>Certifications (Optional)</label>
+
+                <textarea id="certifications"
+                    placeholder="Example: Python Certification, AutoCAD Certification"></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACHIEVEMENTS -->
+
+        <div class="section">
+
+            <h2>⭐ Achievements</h2>
+
+            <div class="field">
+
+                <label>Achievements (Optional)</label>
+
+                <textarea id="achievements"
+                    placeholder="Add relevant achievements"></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="note">
+            💡 Only enter information that is true about you.
+            CVBoost will never create fake qualifications or experience.
+        </div>
+
+        <br>
+
+        <button class="button" onclick="generateResume()">
+            ✨ Generate My Resume
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function generateResume() {
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!name || !email || !phone) {
+
+        alert("Please enter your name, email and phone number.");
+
+        return;
+    }
+
+    alert(
+        "Great! Your information has been collected. " +
+        "Next we'll create the resume preview and ATS analysis."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
