@@ -1,428 +1,1146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CVBoost | First Resume Builder</title>
+<title>CVBoost | First Resume Builder</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f4efff, #fff1f7);
-            color: #19152d;
-            padding-bottom: 50px;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(135deg,#f4efff,#fff1f7);
+    color:#19152d;
+    padding-bottom:60px;
+}
 
-        .header {
-            background: white;
-            padding: 16px 22px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-        }
+.header{
+    background:white;
+    padding:15px 22px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: 900;
-            color: #6948ef;
-        }
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-        .container {
-            max-width: 850px;
-            margin: 45px auto;
-            padding: 0 20px;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#19152d;
+    font-size:24px;
+    font-weight:900;
+}
 
-        .top {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6547ee,#b33ee9,#ff507e);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+}
 
-        .top h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
+.back{
+    text-decoration:none;
+    color:#6848ef;
+    font-weight:bold;
+    font-size:14px;
+}
 
-        .top p {
-            color: #6d6878;
-        }
+.container{
+    max-width:900px;
+    margin:45px auto;
+    padding:0 20px;
+}
 
-        .free {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 16px;
-            border-radius: 30px;
-            background: #eee9ff;
-            color: #6848ef;
-            font-weight: bold;
-            font-size: 13px;
-        }
+.top{
+    text-align:center;
+    margin-bottom:30px;
+}
 
-        .form-card {
-            background: white;
-            padding: 30px;
-            border-radius: 22px;
-            box-shadow: 0 15px 45px rgba(55,39,100,0.10);
-        }
+.top h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
 
-        .section {
-            margin-bottom: 30px;
-        }
+.top p{
+    color:#6d6878;
+}
 
-        .section h2 {
-            margin-bottom: 18px;
-            color: #6848ef;
-        }
+.free{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 16px;
+    border-radius:30px;
+    background:#eee9ff;
+    color:#6848ef;
+    font-weight:bold;
+    font-size:13px;
+}
 
-        .field {
-            margin-bottom: 16px;
-        }
+.form-card{
+    background:white;
+    padding:32px;
+    border-radius:24px;
+    box-shadow:0 15px 45px rgba(55,39,100,.10);
+}
 
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 7px;
-            font-size: 14px;
-        }
+.section{
+    padding-bottom:30px;
+    margin-bottom:30px;
+    border-bottom:1px solid #eeeaf5;
+}
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd8ea;
-            border-radius: 10px;
-            font-size: 15px;
-            outline: none;
-        }
+.section:last-of-type{
+    border-bottom:none;
+}
 
-        input:focus,
-        textarea:focus {
-            border-color: #7657ee;
-            box-shadow: 0 0 0 3px rgba(118,87,238,0.10);
-        }
+.section h2{
+    margin-bottom:10px;
+    color:#6848ef;
+    font-size:22px;
+}
 
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
+.section-description{
+    color:#777180;
+    font-size:13px;
+    margin-bottom:18px;
+}
 
-        .two {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+.field{
+    margin-bottom:16px;
+}
 
-        .button {
-            width: 100%;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            background: linear-gradient(135deg, #6848ef, #a33de4);
-        }
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+    font-size:14px;
+}
 
-        .button:hover {
-            transform: translateY(-2px);
-        }
+input,
+textarea,
+select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd8ea;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    font-family:inherit;
+}
 
-        .note {
-            margin-top: 15px;
-            padding: 13px;
-            background: #f8f6ff;
-            border-radius: 10px;
-            color: #696378;
-            font-size: 13px;
-        }
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#7657ee;
+    box-shadow:0 0 0 3px rgba(118,87,238,.10);
+}
 
-        @media (max-width: 600px) {
-            .top h1 {
-                font-size: 30px;
-            }
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
 
-            .form-card {
-                padding: 22px;
-            }
+.two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
 
-            .two {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+/* ENTRY */
+
+.entry{
+    background:#faf9ff;
+    border:1px solid #e9e4f7;
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:15px;
+}
+
+.entry-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.entry-number{
+    font-weight:800;
+    color:#6848ef;
+}
+
+.remove-btn{
+    border:none;
+    background:#ffe9ee;
+    color:#d83260;
+    padding:7px 11px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* ADD BUTTON */
+
+.add-btn{
+    width:100%;
+    padding:12px;
+    border:1px dashed #a99be8;
+    border-radius:11px;
+    background:#f8f6ff;
+    color:#6848ef;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-btn:hover{
+    background:#eeeaff;
+}
+
+/* UPLOAD */
+
+.upload-box{
+    border:2px dashed #cfc6ef;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    background:#fff;
+    margin-top:15px;
+}
+
+.upload-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.upload-box p{
+    color:#777180;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.file-label{
+    display:inline-block;
+    padding:10px 16px;
+    background:#eee9ff;
+    color:#6848ef;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.file-input{
+    display:none;
+}
+
+.file-name{
+    margin-top:10px;
+    font-size:13px;
+    color:#5e596d;
+    word-break:break-word;
+}
+
+.file-actions{
+    margin-top:10px;
+}
+
+.extract-btn,
+.remove-file-btn{
+    border:none;
+    padding:9px 13px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:3px;
+}
+
+.extract-btn{
+    background:#6848ef;
+    color:white;
+}
+
+.remove-file-btn{
+    background:#ffe9ee;
+    color:#d83260;
+}
+
+/* NOTE */
+
+.note{
+    margin-bottom:18px;
+    padding:14px;
+    background:#f8f6ff;
+    border-radius:10px;
+    color:#696378;
+    font-size:13px;
+}
+
+/* MAIN BUTTON */
+
+.generate-btn{
+    width:100%;
+    border:none;
+    padding:17px;
+    border-radius:13px;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(135deg,#6848ef,#a33de4);
+    box-shadow:0 12px 25px rgba(104,72,239,.22);
+}
+
+.generate-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .container{
+        margin-top:30px;
+    }
+
+    .top h1{
+        font-size:30px;
+    }
+
+    .form-card{
+        padding:22px;
+    }
+
+    .two{
+        grid-template-columns:1fr;
+    }
+
+    .header-inner{
+        gap:10px;
+    }
+
+    .back{
+        font-size:12px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header class="header">
-    <div class="logo">CVBoost</div>
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
+<span class="logo-icon">CV</span>
+CVBoost
+</a>
+
+<a href="index.html" class="back">
+← Back to Home
+</a>
+
+</div>
+
 </header>
+
 
 <div class="container">
 
-    <div class="top">
+<div class="top">
 
-        <h1>📝 Create Your First Resume</h1>
+<h1>📝 Create Your First Resume</h1>
 
-        <p>
-            Don't have a resume yet?
-            We'll guide you step by step.
-        </p>
+<p>
+Build your resume step by step with CVBoost.
+</p>
 
-        <div class="free">
-            🎁 Your first complete attempt is FREE
-        </div>
+<div class="free">
+🎁 Your first complete attempt is FREE
+</div>
 
-    </div>
+</div>
 
-    <div class="form-card">
 
-        <!-- PERSONAL DETAILS -->
+<div class="form-card">
 
-        <div class="section">
 
-            <h2>👤 Personal Details</h2>
+<!-- PERSONAL DETAILS -->
 
-            <div class="field">
-                <label>Full Name</label>
-                <input type="text" id="name"
-                       placeholder="Enter your full name">
-            </div>
+<div class="section">
 
-            <div class="two">
+<h2>👤 Personal Details</h2>
 
-                <div class="field">
-                    <label>Email</label>
-                    <input type="email" id="email"
-                           placeholder="your@email.com">
-                </div>
+<div class="field">
+<label>Full Name *</label>
+<input id="name" type="text" placeholder="Enter your full name">
+</div>
 
-                <div class="field">
-                    <label>Phone</label>
-                    <input type="tel" id="phone"
-                           placeholder="Your phone number">
-                </div>
+<div class="two">
 
-            </div>
+<div class="field">
+<label>Email *</label>
+<input id="email" type="email" placeholder="your@email.com">
+</div>
 
-            <div class="field">
-                <label>Location</label>
-                <input type="text" id="location"
-                       placeholder="City, State">
-            </div>
+<div class="field">
+<label>Phone *</label>
+<input id="phone" type="tel" placeholder="Your phone number">
+</div>
 
-            <div class="field">
-                <label>LinkedIn Profile (Optional)</label>
-                <input type="url" id="linkedin"
-                       placeholder="https://linkedin.com/in/...">
-            </div>
+</div>
 
-            <div class="field">
-                <label>GitHub Profile (Optional)</label>
-                <input type="url" id="github"
-                       placeholder="https://github.com/...">
-            </div>
+<div class="field">
+<label>Location</label>
+<input id="location" type="text" placeholder="City, State">
+</div>
 
-        </div>
+<div class="field">
+<label>LinkedIn Profile</label>
+<input id="linkedin" type="url" placeholder="https://linkedin.com/in/...">
+</div>
 
+<div class="field">
+<label>GitHub Profile</label>
+<input id="github" type="url" placeholder="https://github.com/...">
+</div>
 
-        <!-- SUMMARY -->
+</div>
 
-        <div class="section">
 
-            <h2>🎯 Professional Summary</h2>
+<!-- SUMMARY -->
 
-            <div class="field">
+<div class="section">
 
-                <label>
-                    Tell us briefly about yourself
-                </label>
+<h2>🎯 Professional Summary</h2>
 
-                <textarea id="summary"
-                    placeholder="Example: Electrical & Electronics Engineering student with a strong foundation in..."></textarea>
+<p class="section-description">
+Optional. You can write your own summary.
+</p>
 
-            </div>
+<div class="field">
 
-        </div>
+<label>About You</label>
 
+<textarea id="summary"
+placeholder="Briefly describe your education, skills, interests and career goal."></textarea>
 
-        <!-- EDUCATION -->
+</div>
 
-        <div class="section">
+</div>
 
-            <h2>🎓 Education</h2>
 
-            <div class="field">
-                <label>Degree / Course</label>
-                <input type="text" id="degree"
-                       placeholder="Example: B.E. Electrical & Electronics Engineering">
-            </div>
+<!-- EDUCATION -->
 
-            <div class="field">
-                <label>College / University</label>
-                <input type="text" id="college"
-                       placeholder="College name">
-            </div>
+<div class="section">
 
-            <div class="two">
+<h2>🎓 Education</h2>
 
-                <div class="field">
-                    <label>Graduation Year</label>
-                    <input type="text" id="year"
-                           placeholder="2028">
-                </div>
+<p class="section-description">
+Add only the education you want to show on your resume.
+University/College, PUC/12th and SSLC/10th are all optional.
+</p>
 
-                <div class="field">
-                    <label>CGPA / Percentage</label>
-                    <input type="text" id="cgpa"
-                           placeholder="9.00 / 10">
-                </div>
+<div id="education"></div>
 
-            </div>
+<button type="button"
+class="add-btn"
+onclick="addEducation()">
++ Add Education
+</button>
 
-        </div>
+</div>
 
 
-        <!-- SKILLS -->
+<!-- SKILLS -->
 
-        <div class="section">
+<div class="section">
 
-            <h2>💻 Skills</h2>
+<h2>💻 Skills</h2>
 
-            <div class="field">
+<div class="field">
 
-                <label>Your Skills</label>
+<label>Skills</label>
 
-                <textarea id="skills"
-                    placeholder="Example: Python, C, C++, HTML, CSS, JavaScript, AutoCAD"></textarea>
+<textarea id="skills"
+placeholder="Example: Python, C, C++, HTML, CSS, JavaScript, AutoCAD"></textarea>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
 
-        <!-- PROJECTS -->
+<!-- PROJECTS -->
 
-        <div class="section">
+<div class="section">
 
-            <h2>🚀 Projects</h2>
+<h2>🚀 Projects</h2>
 
-            <div class="field">
+<p class="section-description">
+Optional. Add multiple projects or upload project documents.
+</p>
 
-                <label>Project Name</label>
+<div id="projects"></div>
 
-                <input type="text" id="projectName"
-                       placeholder="Your project name">
+<button type="button"
+class="add-btn"
+onclick="addProject()">
++ Add Project
+</button>
 
-            </div>
+</div>
 
-            <div class="field">
 
-                <label>Project Description</label>
+<!-- INTERNSHIPS -->
 
-                <textarea id="projectDescription"
-                    placeholder="Describe what you built and what you did"></textarea>
+<div class="section">
 
-            </div>
+<h2>💼 Internships / Experience</h2>
 
-        </div>
+<p class="section-description">
+Optional. Add internships, training or relevant experience.
+</p>
 
+<div id="internships"></div>
 
-        <!-- INTERNSHIP -->
+<button type="button"
+class="add-btn"
+onclick="addInternship()">
++ Add Internship
+</button>
 
-        <div class="section">
+</div>
 
-            <h2>💼 Internship / Experience</h2>
 
-            <div class="field">
+<!-- CERTIFICATIONS -->
 
-                <label>Details (Optional)</label>
+<div class="section">
 
-                <textarea id="experience"
-                    placeholder="Add internship, training or relevant experience"></textarea>
+<h2>🏆 Certifications</h2>
 
-            </div>
+<p class="section-description">
+Optional. Add multiple certificates or upload certificate files.
+</p>
 
-        </div>
+<div id="certifications"></div>
 
+<button type="button"
+class="add-btn"
+onclick="addCertification()">
++ Add Certificate
+</button>
 
-        <!-- CERTIFICATIONS -->
+</div>
 
-        <div class="section">
 
-            <h2>🏆 Certifications</h2>
+<!-- ACHIEVEMENTS -->
 
-            <div class="field">
+<div class="section">
 
-                <label>Certifications (Optional)</label>
+<h2>⭐ Achievements</h2>
 
-                <textarea id="certifications"
-                    placeholder="Example: Python Certification, AutoCAD Certification"></textarea>
+<p class="section-description">
+Optional. Add multiple achievements.
+</p>
 
-            </div>
+<div id="achievements"></div>
 
-        </div>
+<button type="button"
+class="add-btn"
+onclick="addAchievement()">
++ Add Achievement
+</button>
 
+</div>
 
-        <!-- ACHIEVEMENTS -->
 
-        <div class="section">
+<div class="note">
 
-            <h2>⭐ Achievements</h2>
+🔐 Uploaded documents are optional.
+Always review extracted information before adding it to your resume.
+CVBoost should never create fake qualifications, certificates or experience.
 
-            <div class="field">
+</div>
 
-                <label>Achievements (Optional)</label>
 
-                <textarea id="achievements"
-                    placeholder="Add relevant achievements"></textarea>
+<button type="button"
+class="generate-btn"
+onclick="generateResume()">
 
-            </div>
+✨ Generate My Resume
 
-        </div>
+</button>
 
-
-        <div class="note">
-            💡 Only enter information that is true about you.
-            CVBoost will never create fake qualifications or experience.
-        </div>
-
-        <br>
-
-        <button class="button" onclick="generateResume()">
-            ✨ Generate My Resume
-        </button>
-
-    </div>
+</div>
 
 </div>
 
 
 <script>
 
-function generateResume() {
+/* =========================
+   EDUCATION
+========================= */
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
+let educationCount = 0;
 
-    if (!name || !email || !phone) {
+function addEducation(){
 
-        alert("Please enter your name, email and phone number.");
+educationCount++;
 
-        return;
-    }
+const container =
+document.getElementById("education");
 
-    alert(
-        "Great! Your information has been collected. " +
-        "Next we'll create the resume preview and ATS analysis."
-    );
+const entry =
+document.createElement("div");
+
+entry.className = "entry";
+
+entry.innerHTML = `
+
+<div class="entry-header">
+
+<span class="entry-number">
+🎓 Education ${educationCount}
+</span>
+
+<button type="button"
+class="remove-btn"
+onclick="this.closest('.entry').remove()">
+Remove
+</button>
+
+</div>
+
+<div class="field">
+
+<label>Education Level</label>
+
+<select>
+
+<option value="">
+Select education level
+</option>
+
+<option>University / College</option>
+
+<option>PUC / 12th</option>
+
+<option>SSLC / 10th</option>
+
+<option>Diploma</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Course / Qualification</label>
+
+<input type="text"
+placeholder="Example: B.E. Electrical & Electronics Engineering">
+
+</div>
+
+<div class="field">
+
+<label>School / College / University</label>
+
+<input type="text"
+placeholder="Institution name">
+
+</div>
+
+<div class="field">
+
+<label>Board / University</label>
+
+<input type="text"
+placeholder="Example: VTU / CBSE / Karnataka Board">
+
+</div>
+
+<div class="two">
+
+<div class="field">
+
+<label>Year</label>
+
+<input type="text"
+placeholder="2028">
+
+</div>
+
+<div class="field">
+
+<label>CGPA / Percentage</label>
+
+<input type="text"
+placeholder="9.70 / 95%">
+
+</div>
+
+</div>
+
+`;
+
+container.appendChild(entry);
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+let projectCount = 0;
+
+function addProject(){
+
+projectCount++;
+
+const container =
+document.getElementById("projects");
+
+const entry =
+document.createElement("div");
+
+entry.className = "entry";
+
+entry.innerHTML = `
+
+<div class="entry-header">
+
+<span class="entry-number">
+🚀 Project ${projectCount}
+</span>
+
+<button type="button"
+class="remove-btn"
+onclick="this.closest('.entry').remove()">
+Remove
+</button>
+
+</div>
+
+<div class="field">
+
+<label>Project Name</label>
+
+<input type="text"
+placeholder="Example: Smart Energy Monitoring System">
+
+</div>
+
+<div class="field">
+
+<label>Project Description</label>
+
+<textarea
+placeholder="What did you build? What did you do?"></textarea>
+
+</div>
+
+<div class="field">
+
+<label>Technologies / Components</label>
+
+<input type="text"
+placeholder="Example: Arduino, C, Sensors">
+
+</div>
+
+${uploadBox("project")}
+
+`;
+
+container.appendChild(entry);
+}
+
+
+/* =========================
+   INTERNSHIPS
+========================= */
+
+let internshipCount = 0;
+
+function addInternship(){
+
+internshipCount++;
+
+const container =
+document.getElementById("internships");
+
+const entry =
+document.createElement("div");
+
+entry.className = "entry";
+
+entry.innerHTML = `
+
+<div class="entry-header">
+
+<span class="entry-number">
+💼 Internship ${internshipCount}
+</span>
+
+<button type="button"
+class="remove-btn"
+onclick="this.closest('.entry').remove()">
+Remove
+</button>
+
+</div>
+
+<div class="field">
+
+<label>Organization / Company</label>
+
+<input type="text"
+placeholder="Company or organization">
+
+</div>
+
+<div class="field">
+
+<label>Role / Internship Title</label>
+
+<input type="text"
+placeholder="Example: Software Intern">
+
+</div>
+
+<div class="field">
+
+<label>Internship Description</label>
+
+<textarea
+placeholder="Describe your genuine work or training experience"></textarea>
+
+</div>
+
+${uploadBox("internship")}
+
+`;
+
+container.appendChild(entry);
+}
+
+
+/* =========================
+   CERTIFICATIONS
+========================= */
+
+let certificationCount = 0;
+
+function addCertification(){
+
+certificationCount++;
+
+const container =
+document.getElementById("certifications");
+
+const entry =
+document.createElement("div");
+
+entry.className = "entry";
+
+entry.innerHTML = `
+
+<div class="entry-header">
+
+<span class="entry-number">
+🏆 Certificate ${certificationCount}
+</span>
+
+<button type="button"
+class="remove-btn"
+onclick="this.closest('.entry').remove()">
+Remove
+</button>
+
+</div>
+
+<div class="field">
+
+<label>Certificate Name</label>
+
+<input type="text"
+placeholder="Example: Python Programming">
+
+</div>
+
+<div class="field">
+
+<label>Issuing Organization</label>
+
+<input type="text"
+placeholder="Organization / Platform">
+
+</div>
+
+<div class="field">
+
+<label>Year</label>
+
+<input type="text"
+placeholder="2026">
+
+</div>
+
+${uploadBox("certificate")}
+
+`;
+
+container.appendChild(entry);
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+let achievementCount = 0;
+
+function addAchievement(){
+
+achievementCount++;
+
+const container =
+document.getElementById("achievements");
+
+const entry =
+document.createElement("div");
+
+entry.className = "entry";
+
+entry.innerHTML = `
+
+<div class="entry-header">
+
+<span class="entry-number">
+⭐ Achievement ${achievementCount}
+</span>
+
+<button type="button"
+class="remove-btn"
+onclick="this.closest('.entry').remove()">
+Remove
+</button>
+
+</div>
+
+<div class="field">
+
+<label>Achievement</label>
+
+<textarea
+placeholder="Describe your genuine achievement"></textarea>
+
+</div>
+
+`;
+
+container.appendChild(entry);
+}
+
+
+/* =========================
+   UPLOAD BOX
+========================= */
+
+function uploadBox(type){
+
+return `
+
+<div class="upload-box">
+
+<div class="upload-icon">
+📎
+</div>
+
+<p>
+Upload supporting file (optional)<br>
+<small>
+JPG, JPEG, PNG, PDF, DOC or DOCX
+</small>
+</p>
+
+<label class="file-label">
+
+Choose File
+
+<input
+type="file"
+class="file-input"
+accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+onchange="showFile(this)">
+
+</label>
+
+<div class="file-name"></div>
+
+<div class="file-actions">
+
+<button
+type="button"
+class="extract-btn"
+style="display:none"
+onclick="prepareExtraction(this)">
+
+✨ Extract Information
+
+</button>
+
+<button
+type="button"
+class="remove-file-btn"
+style="display:none"
+onclick="removeFile(this)">
+
+✕ Remove File
+
+</button>
+
+</div>
+
+</div>
+
+`;
+}
+
+
+/* =========================
+   SHOW FILE
+========================= */
+
+function showFile(input){
+
+const box =
+input.closest(".upload-box");
+
+const fileName =
+box.querySelector(".file-name");
+
+const extractButton =
+box.querySelector(".extract-btn");
+
+const removeButton =
+box.querySelector(".remove-file-btn");
+
+if(input.files.length > 0){
+
+fileName.textContent =
+"Selected: " + input.files[0].name;
+
+extractButton.style.display =
+"inline-block";
+
+removeButton.style.display =
+"inline-block";
+
+}
+
+}
+
+
+/* =========================
+   REMOVE FILE
+========================= */
+
+function removeFile(button){
+
+const box =
+button.closest(".upload-box");
+
+const input =
+box.querySelector(".file-input");
+
+const fileName =
+box.querySelector(".file-name");
+
+const extractButton =
+box.querySelector(".extract-btn");
+
+input.value = "";
+
+fileName.textContent = "";
+
+extractButton.style.display =
+"none";
+
+button.style.display =
+"none";
+
+}
+
+
+/* =========================
+   EXTRACTION
+========================= */
+
+function prepareExtraction(button){
+
+alert(
+"✅ File received!\n\n" +
+"The real document/image text extraction system " +
+"will be connected in the next development step."
+);
+
+}
+
+
+/* =========================
+   GENERATE
+========================= */
+
+function generateResume(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+const phone =
+document.getElementById("phone").value.trim();
+
+
+if(!name || !email || !phone){
+
+alert(
+"Please enter your name, email and phone number."
+);
+
+return;
+
+}
+
+
+alert(
+"✅ Your resume information is ready!\n\n" +
+"Next we will create the resume preview, " +
+"ATS score and error report."
+);
 
 }
 
